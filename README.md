@@ -5,7 +5,8 @@
 - Next.js 14
 - TypeScript
 - Tailwind CSS
-- Bootstrapped app with `create-next-app` 
+- Bootstrapped app with `create-next-app`
+- Github Pages Deployment
 
 ## Before you begin
 Before you begin, make a choice of the following:
