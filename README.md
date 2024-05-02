@@ -1,3 +1,29 @@
+# Template repository for Next.js app development
+**Author:** Webrodent AS
+**Features:**
+- Codespace Compatible Dev Container
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Bootstrapped app with `create-next-app` 
+
+## Before you begin
+Before you begin, make a choice of the following:
+- **Keep the app as is:** You want to make your app from the nextjs template as it is.
+- **Remove the app:** You want to remove the app and start from scratch or from another nextjs template.
+
+# If you want to remove the app
+Start the development environment with devcontainer or codespace.
+
+Then remove everything except .devcontainer, .gitignore, README.md
+using the following command:
+```bash
+rm -rf src/ public/ .eslintrc.js next.config.js tsconfig.json package.json package-lock.json postcss.config.js tailwind.config.js tsconfig.json
+```
+Then you have a clean slate to start from scratch or from another nextjs template.
+
+
+# If you want to keep the app as is
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
