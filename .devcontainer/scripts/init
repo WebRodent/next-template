@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# check if the .devcontainer/devcontainer.env file exists
+if [ -f ".devcontainer/devcontainer.env" ]; then
+    echo "The .devcontainer/devcontainer.env file exists"
+else
+    echo "Please fill out the values in .devcontainer/devcontainer.env and rebuild the container"
+    cp .devcontainer/devcontainer.env.example .devcontainer/devcontainer.env
+fi

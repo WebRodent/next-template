@@ -1,63 +1,127 @@
-# Template repository for Next.js app development
-**Author:** Webrodent AS
-**Features:**
-- Codespace Compatible Dev Container
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- Bootstrapped app with `create-next-app`
-- Github Pages Deployment
+# Next.js + TypeScript + Supabase Template
 
-## Before you begin
-Before you begin, make a choice of the following:
-- **Keep the app as is:** You want to make your app from the nextjs template as it is.
-- **Remove the app:** You want to remove the app and start from scratch or from another nextjs template.
+This is a lightweight template for building web applications with Next.js 14, TypeScript, and Supabase.
 
-# If you want to remove the app
-Start the development environment with devcontainer or codespace.
+## Features
 
-Then remove everything except .devcontainer, .gitignore, README.md
-using the following command:
-```bash
-rm -rf src/ public/ .eslintrc.js next.config.js tsconfig.json package.json package-lock.json postcss.config.js tailwind.config.js tsconfig.json
-```
-Then you have a clean slate to start from scratch or from another nextjs template.
-
-
-# If you want to keep the app as is
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- [Next.js 14](https://nextjs.org/) with App Router
+- [TypeScript](https://www.typescriptlang.org/) for type safety
+- [Supabase](https://supabase.io/) for authentication, database, and storage
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- Basic authentication setup
+- Responsive design with Tailwind CSS
+- Type-safe database access with your custom database types
+- ESLint for code linting
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ and npm
+- Supabase account and project
+
+### Setup
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/yourusername/next-template.git
+cd next-template
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env.local` file based on `.env.local.example`:
+
+```bash
+cp .env.local.example .env.local
+```
+
+4. Update the `.env.local` file with your Supabase credentials.
+
+5. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Database Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This template is designed to work with your custom database schema package. If you have a private database package, you'll need to:
 
-## Learn More
+1. Configure your `.npmrc` file with the appropriate authentication token:
 
-To learn more about Next.js, take a look at the following resources:
+```
+@your-org:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install your database package:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm install @your-org/your-db-package
+```
 
-## Deploy on Vercel
+3. Update the imports in the Supabase client files to use your database types.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+├── app/                      # Next.js App Router
+│   ├── api/                  # API routes
+│   ├── auth/                 # Authentication pages
+│   ├── components/           # React components
+│   │   ├── auth/             # Authentication components
+│   │   └── ui/               # UI components
+│   ├── lib/                  # Utility functions
+│   │   ├── supabase/         # Supabase clients
+│   │   └── utils/            # Utility functions
+│   ├── globals.css           # Global styles
+│   ├── layout.tsx            # Root layout
+│   └── page.tsx              # Home page
+├── types/                    # TypeScript type definitions
+├── .env.local.example        # Example environment variables
+├── next.config.js            # Next.js configuration
+├── package.json              # Project dependencies
+├── postcss.config.js         # PostCSS configuration
+├── tailwind.config.ts        # Tailwind CSS configuration
+└── tsconfig.json             # TypeScript configuration
+```
+
+## Deployment
+
+This template can be deployed to any platform that supports Next.js, such as:
+
+- [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/)
+- [AWS Amplify](https://aws.amazon.com/amplify/)
+
+## Customization
+
+### Styling
+
+This template uses Tailwind CSS for styling. You can customize the design by:
+
+1. Updating the `tailwind.config.ts` file
+2. Modifying the CSS variables in `app/globals.css`
+
+### Database Schema
+
+To use your own database schema:
+
+1. Update the Supabase type definitions in `types/supabase.ts` or replace with your own type imports
+2. Modify the database queries throughout the application to match your schema
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+Made with ❤️ by [Your Name or Company]
